@@ -36,6 +36,23 @@ Then follow the [Persona Configuration](docs/PERSONA.md) guide to enable memory 
 
 * [Quick Start](docs/QUICK_START.md) - 15-minute setup guide
 
+### Verification
+
+After installation, verify your memory system is working correctly:
+
+```bash
+# In Zo, mention the verification prompt:
+@verify-memory-system
+```
+
+Or manually test:
+```bash
+cd /home/workspace/.zo
+python3 -c "from local_memory_client import LocalMemoryClient; c=LocalMemoryClient(); print(c.health_check())"
+```
+
+The verification prompt runs comprehensive health checks and functionality tests. See [`prompts/verify-memory-system.prompt.md`](prompts/verify-memory-system.prompt.md) for details.
+
 ## What You Get
 
 * **Persistent AI memory** across sessions
@@ -100,4 +117,5 @@ MIT
 ---
 
 **Built by The Fork Project** • Conceptual foundation by **amotivv, inc.**
+
 
