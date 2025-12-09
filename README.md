@@ -8,6 +8,7 @@ Give your Zo AI persistent memory using fully local infrastructure.
 curl -sSL https://raw.githubusercontent.com/theforkproject-dev/zo-local-memory/main/install.sh | bash
 ```
 
+- [Quick Start](docs/QUICK_START.md) - 15-minute setup guide
 ## What You Get
 
 - **Persistent AI memory** across sessions
