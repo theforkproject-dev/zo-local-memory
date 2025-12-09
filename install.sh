@@ -167,6 +167,14 @@ chmod +x /home/workspace/.zo/local_memory_client.py
 echo "✓ Python client installed"
 echo ""
 
+# Download verification prompt
+echo "Installing verification prompt..."
+mkdir -p /home/workspace/Prompts
+curl -sL https://raw.githubusercontent.com/theforkproject-dev/zo-local-memory/main/prompts/verify-memory-system.prompt.md \
+    -o /home/workspace/Prompts/verify-memory-system.prompt.md
+echo "✓ Verification prompt installed to /home/workspace/Prompts/"
+echo ""
+
 # Test installation
 echo "Testing installation..."
 python3 << 'EOFTEST'
@@ -194,10 +202,13 @@ echo "✓ Installation Complete!"
 echo "================================"
 echo ""
 echo "Next steps:"
-echo "1. Configure your Zo AI persona to use memory"
+echo "1. Verify installation by running the verification prompt:"
+echo "   @verify-memory-system"
+echo ""
+echo "2. Configure your Zo AI persona to use memory"
 echo "   See: https://tools-hub-fork.zocomputer.io/local-memory"
 echo ""
-echo "2. Test the memory system:"
+echo "3. Test the memory system:"
 echo "   cd /home/workspace/.zo"
 echo "   python3 -c 'from local_memory_client import LocalMemoryClient; c=LocalMemoryClient(); print(c.get_stats())'"
 echo ""
@@ -234,3 +245,5 @@ echo ""
 echo "Full documentation:"
 echo "  https://github.com/theforkproject-dev/zo-local-memory/blob/main/docs/QUICK_START.md"
 echo ""
+
+
