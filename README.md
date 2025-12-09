@@ -2,6 +2,8 @@
 
 Give your Zo AI persistent memory using fully local infrastructure.
 
+**Grow your own Zo**
+
 ## Quick Install
 
 ```bash
