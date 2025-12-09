@@ -798,7 +798,7 @@ This is **production-grade** infrastructure that scales from personal use to tho
 1. Navigate to **[Settings > Your AI > Personas](/settings#your-ai)** in your Zo Computer
 2. Click **"Create Persona"**
 3. Name it **"Memory-Enabled Zo"**  
-4. **Copy the complete persona prompt from**: [docs/PERSONA.md](PERSONA.md)
+4. **Copy the complete persona prompt from**: [docs/PERSONA.md](https://github.com/theforkproject-dev/zo-local-memory/blob/main/docs/PERSONA.md)
 5. Click **"Save"**
 6. Click **"Set as Active"**
 
@@ -837,7 +837,7 @@ With the persona configuration:
 
 ### Full Documentation
 
-See **[docs/PERSONA.md](PERSONA.md)** for:
+See **[docs/PERSONA.md](https://github.com/theforkproject-dev/zo-local-memory/blob/main/docs/PERSONA.md)** for:
 - Complete persona prompt text
 - Memory type taxonomy
 - Quality guidelines
