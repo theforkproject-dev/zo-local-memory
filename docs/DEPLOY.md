@@ -786,3 +786,127 @@ This is **production-grade** infrastructure that scales from personal use to tho
 
 **You now have local semantic memory running on your Zo Computer.** Your AI can remember, learn, and build continuity—all on your infrastructure, under your control.
 
+
+---
+
+## Step 6: Configure Your Zo AI Persona
+
+**Critical**: The memory system requires a specially configured Zo AI persona to function. Without this, your AI won't know how to use the memory system.
+
+### Quick Setup
+
+1. Navigate to **[Settings > Your AI > Personas](/settings#your-ai)** in your Zo Computer
+2. Click **"Create Persona"**
+3. Name it **"Memory-Enabled Zo"**  
+4. **Copy the complete persona prompt from**: [docs/PERSONA.md](PERSONA.md)
+5. Click **"Save"**
+6. Click **"Set as Active"**
+
+### What the Persona Does
+
+The Memory-Enabled Zo persona configures your AI to:
+
+**At the start of every conversation**:
+```bash
+# Automatically retrieves recent context
+cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py initialize
+```
+
+**During conversations**:
+- Queries memory when you reference past work
+- Autonomously decides what's important to remember
+- Stores memories with rich context
+
+**At conversation end**:
+- Creates a "conversation bridge" summarizing the session
+- Enables next session to resume with full continuity
+
+### Why This Matters
+
+Without the persona configuration:
+- ❌ Memory system exists but AI doesn't use it
+- ❌ No automatic context retrieval
+- ❌ No autonomous memory formation
+- ❌ No session continuity
+
+With the persona configuration:
+- ✅ AI automatically initializes memory each session
+- ✅ Remembers preferences, decisions, projects
+- ✅ Builds genuine continuity over time
+- ✅ Stores self-observations for evolution
+
+### Full Documentation
+
+See **[docs/PERSONA.md](PERSONA.md)** for:
+- Complete persona prompt text
+- Memory type taxonomy
+- Quality guidelines
+- Troubleshooting
+- Usage examples
+
+---
+
+## Next Steps
+
+### Verify Everything Works
+
+Start a conversation with your memory-enabled persona active:
+
+1. **Check initialization**: First message should trigger memory retrieval
+2. **Share a preference**: "I prefer concise technical explanations"
+3. **Verify storage**: Check if it was remembered
+   ```bash
+   cd /home/workspace/.zo && python3 local_memory_client.py search "technical explanations" 3 vector
+   ```
+4. **Start new conversation**: Ask "What do you remember about my preferences?"
+
+### Monitor Memory Health
+
+```bash
+# Check memory count
+cd /home/workspace/.zo && python3 local_memory_client.py stats
+
+# Search memories
+cd /home/workspace/.zo && python3 local_memory_client.py search "your query" 5 vector
+```
+
+### Backup Your Memories
+
+```bash
+# Database is just a SQLite file
+cp /var/lib/sqld/memory-box.db ~/backups/memory-box-$(date +%Y%m%d).db
+```
+
+---
+
+## Troubleshooting
+
+### AI not using memory
+
+**Symptom**: No memory initialization at conversation start
+
+**Solution**:
+1. Verify persona is set as **active** (not just created)
+2. Check persona prompt includes initialization protocol
+3. Start a fresh conversation to trigger initialization
+
+### Services not running
+
+```bash
+# Check service status
+supervisorctl -c /etc/zo/supervisord-user.conf status ollama
+supervisorctl -c /etc/zo/supervisord-user.conf status sqld
+
+# Restart if needed
+supervisorctl -c /etc/zo/supervisord-user.conf restart ollama
+supervisorctl -c /etc/zo/supervisord-user.conf restart sqld
+```
+
+### Persona prompt too long
+
+**Symptom**: Can't save persona - prompt too large
+
+**Solution**: The provided persona prompt is within limits. If using a custom prompt, ensure it's under character limit.
+
+---
+
