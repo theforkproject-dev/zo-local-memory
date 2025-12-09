@@ -46,7 +46,7 @@ The core insight—that AI needs memory infrastructure separate from conversatio
 - Memory type taxonomy for structured storage
 - Front-loaded content for retrieval optimization
 
-Learn more about Memory Box: [memorybox.ai](https://memorybox.ai)
+Learn more about Memory Box: [memorybox.dev](https://memorybox.dev)
 
 ## Resources
 
