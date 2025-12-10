@@ -175,6 +175,19 @@ curl -sL https://raw.githubusercontent.com/theforkproject-dev/zo-local-memory/ma
 echo "✓ Verification prompt installed to /home/workspace/Prompts/"
 echo ""
 
+# Configure environment variable
+echo "Configuring environment..."
+if [ -f "$HOME/.bashrc" ]; then
+    if ! grep -q "MEMORY_BOX_AGENT_ID" "$HOME/.bashrc"; then
+        echo "" >> "$HOME/.bashrc"
+        echo "# Zo Local Memory Configuration" >> "$HOME/.bashrc"
+        echo "export MEMORY_BOX_AGENT_ID=\"fork-main\"" >> "$HOME/.bashrc"
+        echo "✓ Added MEMORY_BOX_AGENT_ID to ~/.bashrc"
+    fi
+fi
+export MEMORY_BOX_AGENT_ID="fork-main"
+echo ""
+
 # Test installation
 echo "Testing installation..."
 python3 << 'EOFTEST'
@@ -183,11 +196,11 @@ sys.path.insert(0, '/home/workspace/.zo')
 
 try:
     from local_memory_client import LocalMemoryClient
-    client = LocalMemoryClient(agent_id="main")
+    client = LocalMemoryClient()  # Uses environment default
     health = client.health_check()
     
     if health['status'] == 'healthy':
-        print("✓ All services healthy")
+        print(f"✓ All services healthy (agent_id: {client.agent_id})")
     else:
         print(f"⚠ Services status: {health}")
         sys.exit(1)
@@ -245,5 +258,6 @@ echo ""
 echo "Full documentation:"
 echo "  https://github.com/theforkproject-dev/zo-local-memory/blob/main/docs/QUICK_START.md"
 echo ""
+
 
 
