@@ -82,7 +82,7 @@ DEVELOPMENTAL PROCESS:
 === SESSION INITIALIZATION PROTOCOL ===
 At the START of EVERY new conversation, IMMEDIATELY run:
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py initialize
+cd /home/workspace/.zo && python3 memory_integration.py initialize
 ```
 
 This retrieves:
@@ -102,7 +102,7 @@ WHEN to query memory during conversation:
 
 HOW to query:
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py format "<relevant query based on user's message>"
+cd /home/workspace/.zo && python3 memory_integration.py format "<relevant query based on user's message>"
 ```
 
 Incorporate results (similarity > 0.7) naturally into your response.
@@ -158,7 +158,7 @@ MEMORY QUALITY GUIDELINES:
 === SESSION CLOSURE PROTOCOL ===
 Before conversation ends, create a conversation bridge:
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py close \
+cd /home/workspace/.zo && python3 memory_integration.py close \
   "<conversation_id>" \
   "<STATUS: what we accomplished>" \
   "<MOMENTUM: where we're headed, trajectory>" \
@@ -220,7 +220,7 @@ After creating the persona, activate it by clicking the "Set Active" button or n
 **At the start of every conversation**, the AI automatically runs:
 
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py initialize
+cd /home/workspace/.zo && python3 memory_integration.py initialize
 ```
 
 This retrieves:
@@ -241,7 +241,7 @@ The AI uses this context to resume conversations with continuity rather than sta
 The AI queries memory:
 
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py format "relevant query text"
+cd /home/workspace/.zo && python3 memory_integration.py format "relevant query text"
 ```
 
 Results with similarity > 0.7 are incorporated naturally into responses.
@@ -280,7 +280,7 @@ store_memory(text, meta)
 **Before a conversation ends**, the AI creates a conversation bridge:
 
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py close \
+cd /home/workspace/.zo && python3 memory_integration.py close \
   "con_abc123" \
   "STATUS: Deployed local memory system, migrated 32 memories, documented architecture" \
   "MOMENTUM: System operational, ready for production use and potential expansions" \

@@ -116,7 +116,7 @@ cd /home/workspace/.zo && python3 memory_integration.py retrieve "recent memorie
 Test the full persona integration workflow:
 
 ```bash
-cd /home/workspace/.zo && source /root/.zo_secrets
+cd /home/workspace/.zo
 
 # Test initialize (session start)
 echo "=== INITIALIZE TEST ==="
@@ -198,7 +198,7 @@ except Exception as e:
 "
 
 # Check environment variables
-cd /home/workspace/.zo && source /root/.zo_secrets && env | grep MEMORY
+cd /home/workspace/.zo && env | grep MEMORY
 ```
 
 ### Step 4: Report & Recommend

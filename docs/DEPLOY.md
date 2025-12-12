@@ -809,7 +809,7 @@ The Memory-Enabled Zo persona configures your AI to:
 **At the start of every conversation**:
 ```bash
 # Automatically retrieves recent context
-cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py initialize
+cd /home/workspace/.zo && python3 memory_integration.py initialize
 ```
 
 **During conversations**:

@@ -184,7 +184,7 @@ curl -s http://localhost:11434/api/pull -d '{"name": "nomic-embed-text"}'
    - The persona should include:
    ```
    At the START of EVERY new conversation, IMMEDIATELY run:
-   cd /home/workspace/.zo && source /root/.zo_secrets && python3 memory_integration.py initialize
+   cd /home/workspace/.zo && python3 memory_integration.py initialize
    ```
 
 4. **Test it:**
