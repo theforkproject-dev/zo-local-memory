@@ -198,7 +198,7 @@ except Exception as e:
 "
 
 # Check environment variables
-cd /home/workspace/.zo && source /root/.zo_secrets && env | grep MEMORY
+cd /home/workspace/.zo && env | grep MEMORY
 ```
 
 ### Step 4: Report & Recommend
